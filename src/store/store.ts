@@ -1,8 +1,10 @@
 import { Action } from "@reduxjs/toolkit";
 import { ThunkAction } from "@reduxjs/toolkit";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import usersSlice from "./features/users/users-slice";
 
 export const rootReducer = combineReducers({
+  users: usersSlice
 });
 
 export const setupStore = (initialState = {}) => {
