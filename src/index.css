@@ -97,4 +97,6 @@ h6 {
 body {
   background: rgb(237, 238, 238);
   background: linear-gradient(60deg, rgba(237, 238, 238, 1) 0%, rgba(113, 181, 217, 1) 100%);
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 }
