@@ -2,8 +2,6 @@ import style from "./Spinner.module.scss"
 
 const Spinner = () => {
   return (
-    <tr>
-      <td colSpan={4}>
         <p className={style.spinner}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
             <radialGradient
@@ -56,8 +54,6 @@ const Spinner = () => {
             ></circle>
           </svg>
         </p>
-      </td>
-    </tr>
   );
 }
 

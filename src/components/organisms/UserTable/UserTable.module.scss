@@ -1,43 +1,128 @@
-.table {
-  border-collapse: collapse;
-  margin: 25px auto;
-  font-size: 0.9em;
-  min-width: 400px;
-  border-radius: 5px 5px 0 0;
-  overflow: hidden;
-  white-space: nowrap;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+@import "../../../utils/scss/variables.scss";
+.container {
+  overflow-x: auto;
+  position: static;
   width: 100%;
-  thead tr {
-    background-color: #0284c7;
-    color: #ffffff;
-    text-align: left;
-    font-weight: bold;
-  }
-  th,
-  td {
-    padding: 12px 15px;
-  }
+  border-radius: 15px;
+  transform: translate(-0%, -0%);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
 
-  tbody {
-    tr {
-      border-bottom: 1px solid #dddddd;
-      transition: all 0.1s ease 0s;
-      .active-row {
-        font-weight: bold;
-        color: #009879;
+th,
+td {
+  padding: 20px 1.3vw;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: $white;
+}
+
+th {
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 25px 1.3vw
+}
+
+thead {
+  th {
+    background-color: $violet;
+  }
+}
+
+tbody {
+  tr {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+  td {
+    position: relative;
+    &:hover {
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -9999px;
+        bottom: -9999px;
+        background-color: rgba(255, 255, 255, 0.1);
+        z-index: -1;
       }
-      &:nth-of-type(even) {
-        background-color: #f3f3f3;
-      }
-      &:hover {
-        color: #ffffff;
-        background-color: #6ab2d6;
-      }
-      &:last-of-type {
-        border-bottom: 2px solid #0285c7;
-      }
-      
     }
   }
 }
+
+//@media (max-width: 767px) {
+//  .table {
+//    display: block;
+//    width: 100%;
+//  }
+//  .table-wrapper:before {
+//    content: "Scroll horizontally >";
+//    display: block;
+//    text-align: right;
+//    font-size: 11px;
+//    color: white;
+//    padding: 0 0 10px;
+//  }
+//  .table thead,
+//  .table tbody,
+//  .table thead th {
+//    display: block;
+//  }
+//  .table thead th:last-child {
+//    border-bottom: none;
+//  }
+//  .table thead {
+//    float: left;
+//  }
+//  .table tbody {
+//    width: auto;
+//    position: relative;
+//    overflow-x: auto;
+//  }
+//  .table td,
+//  .table th {
+//    padding: 20px 0.625em 0.625em 0.625em;
+//    height: 60px;
+//    vertical-align: middle;
+//    box-sizing: border-box;
+//    overflow-x: hidden;
+//    overflow-y: auto;
+//    width: 120px;
+//    font-size: 13px;
+//    text-overflow: ellipsis;
+//  }
+//  .table thead th {
+//    text-align: left;
+//    border-bottom: 1px solid #f7f7f9;
+//  }
+//  .table tbody tr {
+//    display: table-cell;
+//  }
+//  .table tbody tr:nth-child(odd) {
+//    background: none;
+//  }
+//  .table tr:nth-child(even) {
+//    background: transparent;
+//  }
+//  .table tr td:nth-child(odd) {
+//    background: #f8f8f8;
+//    border-right: 1px solid #e6e4e4;
+//  }
+//  .table tr td:nth-child(even) {
+//    border-right: 1px solid #e6e4e4;
+//  }
+//  .table tbody td {
+//    display: block;
+//    text-align: center;
+//  }
+//}

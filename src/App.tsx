@@ -3,12 +3,11 @@ import { useTypedDispatch } from "./utils/hooks/useTypedDispatch";
 import { getUsersThunk } from "./store/features/users/users-thunks";
 import { useSearchParams } from "react-router-dom";
 import style from "./App.module.scss";
-import UserFiltering from "./components/organisms/UserFiltering/UserFiltering";
+import UserTable from "./components/organisms/UserTable/UserTable";
 import Spinner from "./components/atoms/Spinner/Spinner";
-const UserTable = lazy(
-  () => import("./components/organisms/UserTable/UserTable")
+const UserFiltering = lazy(
+  () => import("./components/organisms/UserFiltering/UserFiltering")
 );
-
 function App() {
   const dispatch = useTypedDispatch();
   const [searchParams] = useSearchParams();
@@ -21,15 +20,15 @@ function App() {
     dispatch(
       getUsersThunk(filterName, filterUsername, filterEmail, filterPhone)
     );
-  }, [searchParams]);
+  }, [filterName, filterUsername, filterEmail, filterPhone]);
 
   return (
     <div className={style.app}>
       <h1 className={style.app__title}>User Managment Table</h1>
-      <UserFiltering />
       <Suspense fallback={<Spinner />}>
-        <UserTable />
+        <UserFiltering />
       </Suspense>
+      <UserTable />
     </div>
   );
 }

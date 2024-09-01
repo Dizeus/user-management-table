@@ -1,17 +1,16 @@
+@import "./utils/scss/variables.scss";
+
 .app {
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   padding: 15px;
-  background: rgb(237, 238, 238);
-  background: linear-gradient(
-    60deg,
-    rgba(237, 238, 238, 1) 0%,
-    rgba(113, 181, 217, 1) 100%
-  );
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
   &__title {
-    margin: 0;
+    margin: 0 0 20px 0;
     font-size: 34px;
     font-weight: bold;
     text-align: center;
-    color: #0284c7;
+    color: $white;
+    text-shadow: 1px 1px 2px black;
   }
 }

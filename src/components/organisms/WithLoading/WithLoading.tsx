@@ -7,7 +7,15 @@ interface LoadingProps {
 }
 
 const WithLoading: FC<LoadingProps> = ({children, isLoading}) => {
-  return isLoading ? <Spinner /> : <>{children}</>;
+  return isLoading ? (
+    <tr>
+      <td colSpan={4}>
+        <Spinner />
+      </td>
+    </tr>
+  ) : (
+    <>{children}</>
+  );
 };
 
 export default WithLoading;

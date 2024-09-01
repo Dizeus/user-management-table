@@ -9,19 +9,13 @@ export default class UsersService {
     email: string = "",
     phone: string = ""
   ): Promise<AxiosResponse<IUser[]>> {
-    return new Promise((resolve) => {
-      setTimeout(() =>
-        resolve(
-          api.get<IUser[]>("/users", {
-            params: {
-              name_like: name,
-              username_like: username,
-              email_like: email,
-              phone_like: phone,
-            },
-          })
-        ), 1500
-      );
+    return api.get<IUser[]>("/users", {
+      params: {
+        name_like: name,
+        username_like: username,
+        email_like: email,
+        phone_like: phone,
+      },
     });
   }
 }
