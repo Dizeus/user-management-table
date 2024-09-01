@@ -1,14 +1,17 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useTypedDispatch } from "./utils/hooks/useTypedDispatch";
 import { getUsersThunk } from "./store/features/users/users-thunks";
-import { useTypedSelector } from "./utils/hooks/useTypedSelector";
 import { useSearchParams } from "react-router-dom";
-import UserTable from "./components/organisms/UserTable/UserTable";
-import style from "./App.module.scss"
+import style from "./App.module.scss";
 import UserFiltering from "./components/organisms/UserFiltering/UserFiltering";
+import Spinner from "./components/atoms/Spinner/Spinner";
+const UserTable = lazy(
+  () => import("./components/organisms/UserTable/UserTable")
+);
+
 function App() {
   const dispatch = useTypedDispatch();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const filterName = searchParams.get("filter_name") || "";
   const filterUsername = searchParams.get("filter_username") || "";
   const filterEmail = searchParams.get("filter_email") || "";
@@ -23,8 +26,10 @@ function App() {
   return (
     <div className={style.app}>
       <h1 className={style.app__title}>User Managment Table</h1>
-      <UserFiltering/>
-      <UserTable />
+      <UserFiltering />
+      <Suspense fallback={<Spinner />}>
+        <UserTable />
+      </Suspense>
     </div>
   );
 }
