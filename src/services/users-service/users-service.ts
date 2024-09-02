@@ -4,10 +4,10 @@ import { IUser } from "../../utils/types/IUser";
 
 export default class UsersService {
   static fetchUsers(
-    name: string = "",
-    username: string = "",
-    email: string = "",
-    phone: string = ""
+    name: string,
+    username: string,
+    email: string,
+    phone: string
   ): Promise<AxiosResponse<IUser[]>> {
     return api.get<IUser[]>("/users", {
       params: {
