@@ -20,4 +20,4 @@ root.render(
   </StrictMode>
 );
 
-reportWebVitals(console.log);
+reportWebVitals();
