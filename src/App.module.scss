@@ -4,10 +4,10 @@
   min-height: 100vh;
   height: 100%;
   padding: 15px;
-  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  background: linear-gradient(45deg, $turqoiseBg, $violetBg);
   &__title {
     margin: 0 0 20px 0;
-    font-size: 34px;
+    font-size: 2.5em;
     font-weight: bold;
     text-align: center;
     color: $white;

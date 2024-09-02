@@ -1,28 +1,29 @@
-import { useTypedSelector } from "../../../utils/hooks/useTypedSelector";
+import { FC, memo } from "react";
 import { IUser } from "../../../utils/types/IUser";
 import UserRow from "../../molecules/UserRow/UserRow";
+import UsersNotFound from "../../atoms/UsersNotFound/UsersNotFound";
+import { deepCompare } from "../../../utils/helpers/deepCompare";
 import WithLoading from "../WithLoading/WithLoading";
 
-const UserTableBody = () => {
-  const {users, isLoading} = useTypedSelector((state) => state.users);
+interface UserTableBodyProps {
+  users: IUser[];
+  isLoading: boolean;
+}
+const UserTableBody: FC<UserTableBodyProps> = ({ users, isLoading }) => {
 
   return (
-    <tbody>
+    <>
       <WithLoading isLoading={isLoading}>
-        {users.length < 1 ? (
-          <tr>
-            <td>Users was not found</td>
-          </tr>
-        ) : (
-          <>
-            {users.map((user: IUser) => (
-              <UserRow user={user} key={user.id} />
-            ))}
-          </>
-        )}
+        <UsersNotFound usersLength={users.length}>
+          {users.map((user: IUser) => (
+            <UserRow user={user} key={user.id} />
+          ))}
+        </UsersNotFound>
       </WithLoading>
-    </tbody>
+    </>
   );
 };
 
-export default UserTableBody;
+export default memo(UserTableBody, (prevProps, nextProps) =>
+  deepCompare(prevProps.users, nextProps.users)
+);

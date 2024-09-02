@@ -1,7 +1,11 @@
+import { useTypedSelector } from "../../../utils/hooks/useTypedSelector";
 import UserTableBody from "../UserTableBody/UserTableBody";
 import style from "./UserTable.module.scss";
 
 const UserTable = () => {
+
+  const { users, isLoading } = useTypedSelector((state) => state.users);
+
  return (
    <div className={style.container}>
      <table className={style.table}>
@@ -13,7 +17,9 @@ const UserTable = () => {
            <th>Phone</th>
          </tr>
        </thead>
-       <UserTableBody />
+       <tbody>
+         <UserTableBody users={users} isLoading={isLoading}/>
+       </tbody>
      </table>
    </div>
  );

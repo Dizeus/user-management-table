@@ -1,6 +1,5 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { IUser } from "../../../utils/types/IUser";
-
 interface UserRowProps {
   user: IUser;
 }
@@ -15,4 +14,6 @@ const UserRow: FC<UserRowProps> = ({user}) => {
   );
 }
 
-export default UserRow
+export default memo(UserRow, (prevProps, nextProps) => {
+  return prevProps.user.id === nextProps.user.id;
+});

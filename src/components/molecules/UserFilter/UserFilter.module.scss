@@ -11,7 +11,7 @@
     border: 0;
     border-bottom: 2px solid $white;
     outline: 0;
-    font-size: 1.3rem;
+    font-size: 1.3em;
     color: $white;
     padding: 7px 0;
     background: transparent;
@@ -22,7 +22,7 @@
     }
 
     &:placeholder-shown ~ .filter__label {
-      font-size: 1.3rem;
+      font-size: 1.3em;
       cursor: text;
       top: 20px;
     }
@@ -33,7 +33,7 @@
         top: 0;
         display: block;
         transition: 0.2s;
-        font-size: 1rem;
+        font-size: 1em;
         color: $white;
         font-weight: 700;
       }
@@ -50,7 +50,7 @@
     top: 0;
     display: block;
     transition: 0.2s;
-    font-size: 1rem;
+    font-size: 1em;
     color: $white;
   }
 }
